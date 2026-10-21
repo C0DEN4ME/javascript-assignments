@@ -2,7 +2,7 @@
 const number = Number(prompt('Enter a positive integer:'));
 const numberfield = document.getElementById('sum');
 
-if (number < 1) {
+if (number < 1 || !Number.isInteger(number)) {
   numberfield.textContent = 'Please enter a positive integer.';
 } else {
   let sum = 0;
