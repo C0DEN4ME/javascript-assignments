@@ -1,0 +1,24 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background-color: #f7f7f7;
+  color: #222;
+}
+
+h1 {
+  color: rgb(255, 80, 0);
+}
+#highRatedMovie {
+  font-weight: bold;
+  color: rgb(255, 80, 0);
+  font-size: 1.2rem;
+}
+#movie-list li {
+  background-color: white;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
