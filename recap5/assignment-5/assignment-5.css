@@ -1,0 +1,33 @@
+body {
+  background-color: #f0f0f0;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+}
+
+th {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  font-weight: normal;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+  padding: 0.5em 1em;
+}
+
+dialog { border: 1px solid #888; border-radius: 8px; padding: 24px; max-width: 90vw; }
+dialog::backdrop { background: rgba(0, 0, 0, 0.4); }
+button { cursor: pointer; padding: 6px 12px; }
+
+.highlight { background-color: #fff0a6; font-weight: bold; }
+td button { background: transparent; border: none; font: inherit; color: inherit; text-align: left; }
