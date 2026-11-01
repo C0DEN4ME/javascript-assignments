@@ -1,6 +1,6 @@
 const api = 'https://media2.edu.metropolia.fi/restaurant/api/v1';
 const table = document.querySelector('table');
-const status = document.querySelector('#status');
+const statusText = document.querySelector('#status');
 const dialog = document.querySelector('dialog');
 let selection = 0;
 
@@ -21,8 +21,12 @@ async function showDetails(restaurant, nameCell) {
   const heading = document.createElement('h2');
   heading.textContent = restaurant.name;
   dialog.appendChild(heading);
-  const details = [restaurant.address, `${restaurant.postalCode} ${restaurant.city}`,
-    `Phone: ${restaurant.phone}`, `Company: ${restaurant.company}`];
+  const details = [
+    restaurant.address,
+    `${restaurant.postalCode} ${restaurant.city}`,
+    `Phone: ${restaurant.phone}`,
+    `Company: ${restaurant.company}`,
+  ];
   for (const detail of details) {
     const p = document.createElement('p');
     p.textContent = detail;
@@ -36,11 +40,15 @@ async function showDetails(restaurant, nameCell) {
   dialog.appendChild(menu);
   const close = document.createElement('button');
   close.textContent = 'Close';
-  close.addEventListener('click', function () { dialog.close(); });
+  close.addEventListener('click', function () {
+    dialog.close();
+  });
   dialog.appendChild(close);
   dialog.showModal();
   try {
-    const data = await fetchData(`${api}/restaurants/daily/${restaurant._id}/fi`);
+    const data = await fetchData(
+      `${api}/restaurants/daily/${restaurant._id}/fi`
+    );
     if (currentSelection !== selection) return;
     menu.textContent = '';
     if (!data.courses || data.courses.length === 0) {
@@ -53,7 +61,8 @@ async function showDetails(restaurant, nameCell) {
       menu.appendChild(p);
     }
   } catch (error) {
-    menu.textContent = 'Could not load menu. Check your school network or VPN connection.';
+    menu.textContent =
+      'Could not load menu. Check your school network or VPN connection.';
     console.error(error);
   }
 }
@@ -61,7 +70,9 @@ async function showDetails(restaurant, nameCell) {
 async function main() {
   try {
     const restaurants = await fetchData(`${api}/restaurants`);
-    restaurants.sort(function (a, b) { return a.name.localeCompare(b.name, 'fi'); });
+    restaurants.sort(function (a, b) {
+      return a.name.localeCompare(b.name, 'fi');
+    });
     for (const restaurant of restaurants) {
       const row = document.createElement('tr');
       const name = document.createElement('td');
@@ -73,11 +84,13 @@ async function main() {
       row.appendChild(name);
       row.appendChild(address);
       table.appendChild(row);
-      button.addEventListener('click', function () { showDetails(restaurant, name); });
+      button.addEventListener('click', function () {
+        showDetails(restaurant, name);
+      });
     }
-    status.textContent = 'Select a restaurant to see its menu.';
+    statusText.textContent = 'Select a restaurant to see its menu.';
   } catch (error) {
-    status.textContent = 'Could not load restaurants. Connect to the school network or VPN and reload.';
+    statusText.textContent = 'Could not load restaurants.';
     console.error(error);
   }
 }
