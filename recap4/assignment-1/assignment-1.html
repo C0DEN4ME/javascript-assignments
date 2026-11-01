@@ -1,13 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recap 4, assignment 1</title>
-    <script type="module" src="assignment-1.js" defer></script>
-  </head>
 
-  <body>
-    <h1>Recap 4, assignment 1</h1>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recap 4, assignment 1</title>
+  <link rel="stylesheet" href="assignment-1.css">
+  <script src="assignment-1.js" defer></script>
+</head>
+
+<body>
+  <h1>Todo List</h1>
+  <ul>
+    <!-- add todo list conent here -->
+  </ul>
+  <dialog>
+    <h2>Add Todo Item</h2>
+    <form>
+      <input type="text" placeholder="Add todo item here" aria-label="New todo item" required />
+      <button type="submit">Save</button>
+      <button type="button" class="cancel-btn">Cancel</button>
+    </form>
+  </dialog>
+  <button class="add-btn">Add Todo Item</button>
+</body>
+
 </html>
