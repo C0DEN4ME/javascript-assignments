@@ -6,36 +6,28 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 15rem;
+  width: min(100%, 450px);
 }
 
 li {
   border: 1px solid #000;
   display: flex;
-  justify-content: flex-end;
-  line-height: 3rem;
-}
-
-label {
-  display: block;
-  width: 100%;
-  padding-left: 1rem;
-}
-
-li button {
-  width: 2rem;
-  height: 3rem;
-  background-color: rgb(255, 0, 0);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  position: absolute;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
 }
 
 li input {
-  position: absolute;
-  margin: 1rem 3rem;
+  flex-shrink: 0;
+  margin: 0;
   cursor: pointer;
+}
+
+li label {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  overflow-wrap: anywhere;
 }
 
 li input[type='checkbox']:checked + label {
@@ -43,18 +35,47 @@ li input[type='checkbox']:checked + label {
   font-weight: bold;
 }
 
+button {
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+li button {
+  flex-shrink: 0;
+  background-color: rgb(220, 0, 0);
+  color: #fff;
+  border: none;
+}
+
 .add-btn {
-  margin: 1rem;
-  padding: 0.5rem 1rem;
+  margin-top: 16px;
+  padding: 8px 16px;
   background-color: rgb(80, 80, 168);
   color: #fff;
   border: none;
-  cursor: pointer;
 }
 
-dialog { border: 1px solid #888; border-radius: 8px; padding: 24px; max-width: 90vw; }
-dialog::backdrop { background: rgba(0, 0, 0, 0.4); }
-button { cursor: pointer; padding: 6px 12px; }
+dialog {
+  box-sizing: border-box;
+  border: 1px solid #888;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 90vw;
+}
 
-ul { width: min(95%, 450px); }
-li button { margin: 6px; }
+dialog form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+dialog input {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  padding: 6px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
